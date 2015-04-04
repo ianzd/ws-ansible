@@ -1,0 +1,38 @@
+---
+
+- name: install base packages
+  dnf: name={{ item }} state=installed
+  with_items:
+    - ghc
+    - ghc-xmonad-contrib-devel
+    - xmobar
+    - dmenu
+    - network-manager-applet
+    - xorg-x11-drv-synaptics
+    - firefox
+    - wine
+    - thunar
+    - gvfs-mtp
+
+- name: test if chrome repo exists
+  stat: path=/etc/yum.repos.d/google-chrome.repo
+  register: google_chrome_repo
+
+- name: download chrome if repo doesn't already exist
+  dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=installed
+  when: google_chrome_repo.stat.exists == False
+
+# Not strictly necessary
+- name: install chrome
+  dnf: name=google-chrome-stable state=installed
+
+- name: test if Dropbox repo exists
+  stat: path=/etc/yum.repos.d/dropbox.repo
+  register: dropbox_repo
+
+- name: download and install Dropbox rpm
+  dnf: name=https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.02.12-1.fedora.x86_64.rpm state=installed
+
+- name: install Dropbox
+  dnf: name=nautilus-dropbox state=installed
+

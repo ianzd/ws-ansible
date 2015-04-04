@@ -1,0 +1,7 @@
+---
+
+- name: install powertop
+  dnf: name=powertop state=installed
+
+- name: enable powertop service (auto-tune)
+  service: name=powertop enabled=true
