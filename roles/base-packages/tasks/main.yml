@@ -3,6 +3,10 @@
 - name: install base packages
   dnf: name={{ item }} state=installed
   with_items:
+    - git
+    - subversion
+    - python-pip
+    - python3-pip
     - ghc
     - ghc-xmonad-contrib-devel
     - xmobar
@@ -14,8 +18,18 @@
     - thunar
     - gvfs-mtp
     - openssl
-    - git
     - xfce4-terminal
+    - adobe-source-code-pro-fonts
+    - rsync
+    - openssh-clients
+    - pass
+    - iotop
+    - perf
+    - tcpdump
+    - nmap-ncat
+    - alpine
+    - xscreensaver-base
+
 
 - name: test if chrome repo exists
   stat: path=/etc/yum.repos.d/google-chrome.repo
