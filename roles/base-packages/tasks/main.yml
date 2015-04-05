@@ -29,6 +29,10 @@
     - nmap-ncat
     - alpine
     - xscreensaver-base
+    - vim
+    - vim-filesystem
+    - vim-enhanced
+    - vim-X11
 
 
 - name: test if chrome repo exists
