@@ -1,9 +1,22 @@
 ---
 
+- name: remove unnecessary packages
+  dnf: name={{ item }} state=absent
+  with_items:
+    - evolution
+    - PackageKit-command-not-found
+
+- name: disable some services
+  service: name={{ item }} enabled=False state=stopped
+  with_items:
+    - avahi-daemon
+    - cups
+
 - name: install base packages
   dnf: name={{ item }} state=installed
   with_items:
     - git
+    - gcc
     - subversion
     - python-pip
     - python3-pip
