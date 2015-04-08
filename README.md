@@ -5,5 +5,7 @@ Run as
 
 ## Steps that are still manual
 
+Everything in $HOME
 - .wine for YNAB
 - .wine-adobe
+- dotfiles
