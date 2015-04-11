@@ -17,10 +17,14 @@
   with_items:
     - git
     - gcc
+    - ipython
     - subversion
     - python-pip
     - python3-pip
     - ghc
+    - xmonad
+    - xfce4-power-manager
+    - xfce4-battery-plugin
     - ghc-xmonad-contrib-devel
     - xmobar
     - dmenu
@@ -52,7 +56,7 @@
   stat: path=/etc/yum.repos.d/google-chrome.repo
   register: google_chrome_repo
 
-- name: download chrome if repo doesn't already exist
+- name: download chrome if its repo doesn't already exist
   dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=installed
   when: google_chrome_repo.stat.exists == False
 
@@ -64,8 +68,9 @@
   stat: path=/etc/yum.repos.d/dropbox.repo
   register: dropbox_repo
 
-- name: download and install Dropbox rpm
+- name: download and install Dropbox if its repo doesn't already exist
   dnf: name=https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.02.12-1.fedora.x86_64.rpm state=installed
+  when: dropbox_repo.stat.exists == False
 
 - name: install Dropbox
   dnf: name=nautilus-dropbox state=installed
