@@ -17,6 +17,8 @@
   with_items:
     - git
     - gcc
+    - elinks
+    - acpi
     - ipython
     - subversion
     - python-pip
