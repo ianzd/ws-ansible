@@ -52,6 +52,7 @@
     - vim-filesystem
     - vim-enhanced
     - vim-X11
+    - smartmontools
 
 
 - name: test if chrome repo exists
