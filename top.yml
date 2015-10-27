@@ -5,4 +5,5 @@
     - base-packages
     - powertop
     - google-chrome
+    - dropbox
     - hipchat

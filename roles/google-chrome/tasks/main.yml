@@ -1,13 +1,13 @@
 ---
 
-- name: test if chrome repo exists
-  stat: path=/etc/yum.repos.d/google-chrome.repo
-  register: google_chrome_repo
+- name: test if chrome cron job already exists
+  stat: path=/etc/cron.daily/google-chrome
+  register: google_chrome_installed
   tags: google-chrome
 
 - name: download chrome if its repo doesn't already exist
   dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=installed
-  when: google_chrome_repo.stat.exists == False
+  when: google_chrome_installed.stat.exists == False
   tags: google-chrome
 
 # Not strictly necessary
