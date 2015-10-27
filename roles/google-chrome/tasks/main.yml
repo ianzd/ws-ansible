@@ -1,0 +1,16 @@
+---
+
+- name: test if chrome repo exists
+  stat: path=/etc/yum.repos.d/google-chrome.repo
+  register: google_chrome_repo
+  tags: google-chrome
+
+- name: download chrome if its repo doesn't already exist
+  dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=installed
+  when: google_chrome_repo.stat.exists == False
+  tags: google-chrome
+
+# Not strictly necessary
+- name: install chrome
+  dnf: name=google-chrome-stable state=installed
+  tags: google-chrome
