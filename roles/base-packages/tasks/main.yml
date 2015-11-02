@@ -47,7 +47,7 @@
     - tcpdump
     - nmap-ncat
     - alpine
-    - xscreensaver-base
+    #- xscreensaver-base
     - vim
     - vim-filesystem
     - vim-enhanced
