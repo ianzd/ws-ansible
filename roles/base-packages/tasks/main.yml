@@ -53,6 +53,9 @@
     - vim-enhanced
     - vim-X11
     - smartmontools
+    - discount
+    - aspell
+    - aspell-en
 
 
 
