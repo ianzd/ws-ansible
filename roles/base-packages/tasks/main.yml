@@ -56,6 +56,4 @@
     - discount
     - aspell
     - aspell-en
-
-
-
+    - strace
