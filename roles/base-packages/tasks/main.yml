@@ -5,6 +5,7 @@
   with_items:
     - evolution
     - PackageKit-command-not-found
+    - fedora-user-agent-chrome
 
 - name: disable some services
   service: name={{ item }} enabled=False state=stopped
