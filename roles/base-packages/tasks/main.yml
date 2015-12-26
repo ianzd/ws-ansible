@@ -58,3 +58,4 @@
     - aspell
     - aspell-en
     - strace
+    - python-virtualenvwrapper
