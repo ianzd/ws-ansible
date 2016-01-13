@@ -4,60 +4,59 @@
   dnf: name={{ item }} state=absent
   with_items:
     - evolution
-    - PackageKit-command-not-found
     - fedora-user-agent-chrome
+    - PackageKit-command-not-found
 
 - name: disable some services
   service: name={{ item }} enabled=False state=stopped
   with_items:
     - avahi-daemon
-    - cups
 
 - name: install base packages
   dnf: name={{ item }} state=installed
   with_items:
-    - git
-    - gcc
-    - elinks
     - acpi
-    - ipython
-    - subversion
-    - python-pip
-    - python3-pip
-    - ghc
-    - xmonad
-    - xfce4-power-manager
-    - xfce4-battery-plugin
-    - ghc-xmonad-contrib-devel
-    - xmobar
-    - dmenu
-    - network-manager-applet
-    - xorg-x11-drv-synaptics
-    - firefox
-    - wine
-    - thunar
-    - gvfs-mtp
-    - openssl
-    - xfce4-terminal
     - adobe-source-code-pro-fonts
-    - rsync
-    - openssh-clients
-    - pass
-    - iotop
-    - perf
-    - tcpdump
-    - nmap-ncat
     - alpine
-    #- xscreensaver-base
-    - vim
-    - vim-filesystem
-    - vim-enhanced
-    - vim-X11
-    - smartmontools
-    - discount
     - aspell
     - aspell-en
-    - strace
+    - discount
+    - dmenu
+    - elinks
+    - firefox
+    - gcc
+    - ghc
+    - ghc-xmonad-contrib-devel
+    - git
+    - gvfs-mtp
+    - iotop
+    - ipython
+    - network-manager-applet
+    - nmap-ncat
+    - openssh-clients
+    - openssl
+    - pass
+    - perf
+    - python3-pip
+    - python-pip
     - python-virtualenvwrapper
+    - rsync
+    - smartmontools
+    - strace
+    - subversion
+    - tcpdump
+    - thunar
+    - vim
+    - vim-enhanced
+    - vim-filesystem
+    - vim-X11
+    - wine
     - wireshark
     - wireshark-gnome
+    - xfce4-battery-plugin
+    - xfce4-power-manager
+    - xfce4-terminal
+    - xmobar
+    - xmonad
+    - xorg-x11-drv-synaptics
+    #- xscreensaver-base
