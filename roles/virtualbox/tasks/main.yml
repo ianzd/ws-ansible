@@ -14,3 +14,12 @@
 - name: download and install virtualbox
   tags: virtualbox
   dnf: name=VirtualBox-5.0 state=installed
+
+- name: add my_user to the 'vboxusers' group
+  tags: virtualbox
+  user:
+    name: "{{ my_user }}"
+    groups: vboxusers
+    append: yes
+  when: my_user is defined
+  

@@ -1,4 +1,3 @@
 # Ansible Playbook for workstation config
 
-Run as
-    ansible-playbook --ask-sudo-pass -i hosts top.yml
+run via ./run_me.sh
