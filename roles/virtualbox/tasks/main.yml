@@ -1,6 +1,6 @@
 ---
 
-name: install packages required for virtualbox module compile
+- name: install packages required for virtualbox module compile
   tags: virtualbox
   dnf: name={{ item }} state=installed
   with_items:
