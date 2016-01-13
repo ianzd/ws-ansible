@@ -1,0 +1,16 @@
+---
+
+- name: install vagrant and vagrant-libvirt provider
+  tags: vagrant
+  dnf: name={{ item }} state=installed
+  with_items:
+    - vagrant
+    - vagrant-libvirt
+
+- name: add my_user to the 'libvirt' group
+  tags: vagrant
+  user:
+    name: "{{ my_user }}"
+    groups: libvirt
+    append: yes
+  when: my_user is defined

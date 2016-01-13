@@ -22,4 +22,3 @@
     groups: vboxusers
     append: yes
   when: my_user is defined
-  
