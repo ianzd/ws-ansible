@@ -1,0 +1,16 @@
+---
+
+name: install packages required for virtualbox module compile
+  tags: virtualbox
+  dnf: name={{ item }} state=installed
+  with_items:
+    - dkms
+    - kernel-devel
+
+- name: nstall virtualbox repo file
+  tags: virtualbox
+  template: src=virtualbox.repo.j2 dest=/etc/yum.repos.d/virtualbox.repo owner=root group=root mode=0755
+
+- name: download and install virtualbox
+  tags: virtualbox
+  dnf: name=VirtualBox-5.0 state=installed
