@@ -8,4 +8,4 @@
     - dropbox
     - hipchat
     - vagrant
-    - virtualbox
+    #- virtualbox
