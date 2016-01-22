@@ -41,6 +41,7 @@
     - python-pip
     - python-virtualenvwrapper
     - rsync
+    - screen
     - smartmontools
     - strace
     - subversion
@@ -50,6 +51,7 @@
     - vim-enhanced
     - vim-filesystem
     - vim-X11
+    - virt-top
     - wine
     - wireshark
     - wireshark-gnome
