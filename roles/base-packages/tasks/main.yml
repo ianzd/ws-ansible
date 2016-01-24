@@ -37,20 +37,21 @@
     - openssl
     - pass
     - perf
-    - python3-pip
     - python-pip
     - python-virtualenvwrapper
+    - python3-pip
     - rsync
     - screen
     - smartmontools
     - strace
     - subversion
     - tcpdump
+    - the_silver_searcher
     - thunar
     - vim
+    - vim-X11
     - vim-enhanced
     - vim-filesystem
-    - vim-X11
     - virt-top
     - wine
     - wireshark
