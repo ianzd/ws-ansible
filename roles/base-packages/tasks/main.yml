@@ -15,11 +15,13 @@
 - name: install base packages
   dnf: name={{ item }} state=installed
   with_items:
+    #- xscreensaver-base
     - acpi
     - adobe-source-code-pro-fonts
     - alpine
     - aspell
     - aspell-en
+    - ddccontrol-gtk
     - discount
     - dmenu
     - elinks
@@ -62,4 +64,3 @@
     - xmobar
     - xmonad
     - xorg-x11-drv-synaptics
-    #- xscreensaver-base
