@@ -31,6 +31,7 @@
     - ghc
     - ghc-xmonad-contrib-devel
     - git
+    - gnome-tweak-tool
     - gvfs-mtp
     - iotop
     - ipython
