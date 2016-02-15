@@ -15,6 +15,7 @@
 - name: install base packages
   dnf: name={{ item }} state=installed
   with_items:
+    #- xmonad-mate
     #- xscreensaver-base
     - acpi
     - adobe-source-code-pro-fonts
