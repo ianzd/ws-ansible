@@ -35,6 +35,8 @@
     - gvfs-mtp
     - iotop
     - ipython
+    - libcaca #needed by some gog.com dosbox games
+    - ncdu
     - network-manager-applet
     - nmap-ncat
     - openssh-clients
