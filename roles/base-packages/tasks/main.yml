@@ -33,6 +33,7 @@
     - git
     - gnome-tweak-tool
     - gvfs-mtp
+    - httpie
     - iotop
     - ipython
     - levien-inconsolata-fonts
