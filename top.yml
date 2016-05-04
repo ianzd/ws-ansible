@@ -6,6 +6,6 @@
     - powertop
     - google-chrome
     - dropbox
-    - hipchat
+    #- hipchat
     - vagrant
     #- virtualbox
