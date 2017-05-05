@@ -43,6 +43,7 @@
     - nmap-ncat
     - openssh-clients
     - openssl
+    - pam-u2f
     - pass
     - perf
     - python-pip
