@@ -14,3 +14,7 @@
 - name: install chrome
   dnf: name=google-chrome-stable state=installed
   tags: google-chrome
+
+- name: template chrome cron defaults
+  template: src=google-chrome-etc-default.j2 dest=/etc/default/google-chrome owner=root group=root mode=0644
+  tags: google-chrome
