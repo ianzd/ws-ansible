@@ -6,7 +6,7 @@
     description: slack
     baseurl: https://packagecloud.io/slacktechnologies/slack/fedora/21/x86_64
     enabled: true
-    gpgcheck: true
+    gpgcheck: false # Slack! Y U NO SIGN PACKAGES? 😞
     sslverify: true
     sslcacert: /etc/pki/tls/certs/ca-bundle.crt
   tags: slack
