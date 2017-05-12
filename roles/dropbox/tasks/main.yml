@@ -1,13 +1,13 @@
 ---
 
-- name: test if Dropbox repo exists
-  stat: path=/etc/yum.repos.d/dropbox.repo
-  register: dropbox_repo
-  tags: dropbox
-
-- name: download and install Dropbox if its repo doesn't already exist
-  dnf: name=https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.02.12-1.fedora.x86_64.rpm state=installed
-  when: dropbox_repo.stat.exists == False
+- name: configure dropbox yum repo
+  yum_repository:
+    name: dropbox
+    description: Dropbox repository
+    baseurl: http://linux.dropbox.com/fedora/$releasever/
+    enabled: true
+    gpgkey: https://linux.dropbox.com/fedora/rpm-public-key.asc
+    sslverify: true
   tags: dropbox
 
 - name: install Dropbox
