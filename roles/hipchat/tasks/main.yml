@@ -1,9 +1,0 @@
----
-
-- name: configure hipchat repo
-  copy: src=atlassian-hipchat.repo dest=/etc/yum.repos.d owner=root group=root mode=0755
-  tags: hipchat
-
-- name: install hipchat
-  dnf: name=hipchat state=installed
-  tags: hipchat

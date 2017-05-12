@@ -7,6 +7,5 @@
     - google-chrome
     - dropbox
     - slack
-    #- hipchat
     - vagrant
     #- virtualbox
