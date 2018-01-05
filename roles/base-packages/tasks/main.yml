@@ -40,6 +40,7 @@
     - libcaca #needed by some gog.com dosbox games
     - ncdu
     - network-manager-applet
+    - nmap
     - nmap-ncat
     - openssh-clients
     - openssl
