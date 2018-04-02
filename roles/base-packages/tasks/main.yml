@@ -27,6 +27,7 @@
     - dmenu
     - elinks
     - firefox
+    - fzf
     - gcc
     - ghc
     - ghc-xmonad-contrib-devel
