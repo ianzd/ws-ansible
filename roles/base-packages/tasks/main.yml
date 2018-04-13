@@ -37,8 +37,10 @@
     - httpie
     - iotop
     - ipython
+    - keepass
     - levien-inconsolata-fonts
     - libcaca #needed by some gog.com dosbox games
+    - libselinux-python
     - ncdu
     - network-manager-applet
     - nmap
@@ -54,6 +56,8 @@
     - rsync
     - screen
     - smartmontools
+    - solaar
+    - sshuttle
     - strace
     - subversion
     - tcpdump
