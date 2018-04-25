@@ -31,6 +31,7 @@
     - gcc
     - ghc
     - ghc-xmonad-contrib-devel
+    - gimp
     - git
     - gnome-tweak-tool
     - gvfs-mtp
