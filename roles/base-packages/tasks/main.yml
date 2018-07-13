@@ -44,6 +44,7 @@
     - libcaca #needed by some gog.com dosbox games
     - libselinux-python
     - libvirt-client
+    - libvirt-daemon-config-nwfilter
     - ncdu
     - network-manager-applet
     - nmap
