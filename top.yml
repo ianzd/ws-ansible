@@ -8,5 +8,4 @@
       #- dropbox
       #- slack
       #- vagrant
-    #- virtualbox
   become: yes

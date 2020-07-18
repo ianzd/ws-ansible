@@ -8,6 +8,8 @@
       - firefox
       - evolution*
       - PackageKit-command-not-found
+      - cockpit-ws
+      - cockpit
 
 - name: remove unnecessary packages
   dnf:
@@ -16,6 +18,13 @@
       - evolution
       - fedora-user-agent-chrome
       - PackageKit-command-not-found
+      - cockpit-ws
+      - cockpit
+
+- name: enable epel
+  dnf:
+    state: present
+    name: epel-release
   
 - name: disable some services
   service:
@@ -91,6 +100,10 @@
       #    - xmonad
       #    - xorg-x11-drv-synaptics
 - name: configure systemd-resolved
-  template: src=resolved.conf dest=/etc/systemd/resolved.conf 
+  template: src=resolved.conf.j2 dest=/etc/systemd/resolved.conf 
   notify: restart systemd-resolved
+
+- name: remind self about isolate graphical
+  template: src=motd.graphical dest=/etc/motd.d/
+
 
