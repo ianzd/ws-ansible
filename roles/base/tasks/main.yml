@@ -1,0 +1,96 @@
+---
+
+- name: install workstation group
+  dnf:
+    name: "@workstation"
+    state: present
+    exclude:
+      - firefox
+      - evolution*
+      - PackageKit-command-not-found
+
+- name: remove unnecessary packages
+  dnf:
+    state: absent
+    name:
+      - evolution
+      - fedora-user-agent-chrome
+      - PackageKit-command-not-found
+  
+- name: disable some services
+  service:
+    enabled: False
+    state: stopped
+    name: avahi-daemon
+  
+- name: install base packages
+  dnf:
+    state: installed
+    enablerepo: PowerTools
+    name:
+            #      - "acpi"
+            #- "adobe-source-code-pro-fonts"
+      - "alpine"
+      - "aspell"
+      - "aspell-en"
+        #- "ddccontrol-gtk"
+      - "discount"
+        #- "dmenu"
+      - "elinks"
+      - "enscript"
+        #- "firefox"
+        # - "fzf"
+      - "gcc"
+      - "gimp"
+      - "git"
+      - "gnome-tweak-tool"
+      - "gvfs-mtp"
+        #- "httpie"
+      - "iotop"
+        #- "ipython"
+      - "keepass"
+        #- "levien-inconsolata-fonts"
+        #- "libselinux-python"
+      - "libvirt-client"
+      - "libvirt-daemon-config-nwfilter"
+      - "ncdu"
+        #- "network-manager-applet"
+      - "nmap"
+      - "nmap-ncat"
+      - "openssh-clients"
+      - "openssl"
+        #- "pam-u2f"
+        #- "pass"
+      - "perf"
+        #- "python-pip"
+        #- "python-virtualenvwrapper"
+      - "python3-pip"
+      - "rsync"
+      - "screen"
+      - "smartmontools"
+        #- "solaar"
+      - "sshuttle"
+      - "strace"
+      - "tcpdump"
+        #- "the_silver_searcher"
+        #- "thunar"
+      - "vim"
+      - "vim-X11"
+      - "vim-enhanced"
+      - "vim-filesystem"
+      - "virt-top"
+      - "wavemon"
+      - "wireshark"
+        #- "wireshark-gnome"
+
+      # wine
+      #- xfce4-battery-plugin
+      #    - xfce4-power-manager
+      #    - xfce4-terminal
+      #    - xmobar
+      #    - xmonad
+      #    - xorg-x11-drv-synaptics
+- name: configure systemd-resolved
+  template: src=resolved.conf dest=/etc/systemd/resolved.conf 
+  notify: restart systemd-resolved
+

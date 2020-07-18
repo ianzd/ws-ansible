@@ -2,10 +2,11 @@
 
 - hosts: all
   roles:
-    - base-packages
-    - powertop
-    - google-chrome
-    - dropbox
-    - slack
-    - vagrant
+    - {role: base, tags: base}
+    #- powertop 
+    - {role: google-chrome , tags: google-chrome}
+      #- dropbox
+      #- slack
+      #- vagrant
     #- virtualbox
+  become: yes
