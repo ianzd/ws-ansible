@@ -104,6 +104,6 @@
   notify: restart systemd-resolved
 
 - name: remind self about isolate graphical
-  template: src=motd.graphical dest=/etc/motd.d/
+  template: src=graphical.issue dest=/etc/issue.d
 
 

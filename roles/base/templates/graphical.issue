@@ -1,1 +1,2 @@
-Reminder: Run 'systemctl isolate graphical' for wayland session
+Run 'systemctl isolate graphical' for wayland session
+

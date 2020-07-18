@@ -5,6 +5,7 @@
     - {role: base, tags: base}
     #- powertop 
     - {role: google-chrome , tags: google-chrome}
+    - {role: firefox, tags: firefox}
       #- dropbox
       #- slack
       #- vagrant
