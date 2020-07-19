@@ -6,6 +6,8 @@
     #- powertop 
     - {role: google-chrome , tags: google-chrome}
     - {role: firefox, tags: firefox}
+    - {role: virthost, tags: virthost}
+    - {role: pass, tags: pass}
       #- dropbox
       #- slack
       #- vagrant
