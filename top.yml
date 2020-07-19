@@ -3,11 +3,11 @@
 - hosts: all
   roles:
     - {role: base, tags: base}
-    #- powertop 
     - {role: google-chrome , tags: google-chrome}
     - {role: firefox, tags: firefox}
     - {role: virthost, tags: virthost}
     - {role: pass, tags: pass}
+      #- powertop 
       #- dropbox
       #- slack
       #- vagrant
