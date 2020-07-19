@@ -9,4 +9,4 @@
 
 #sudo ansible-playbook -e my_user=$USER -i hosts top.yml $@
 sudo echo
-ansible-playbook --become-user=root -e my_user=$USER -i hosts top.yml $@
+ansible-playbook --become-user=root -e my_user=$(whoami) -i hosts top.yml $@
