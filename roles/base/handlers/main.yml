@@ -1,6 +1,7 @@
 ---
 
 - name: restart systemd-resolved
+  ignore_errors: yes
   service:
     name: systemd-resolved
     state: restarted

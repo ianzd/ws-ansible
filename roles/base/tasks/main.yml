@@ -6,7 +6,7 @@
     state: present
     exclude:
       - firefox
-      - evolution*
+      #- evolution*
       - PackageKit-command-not-found
       - cockpit-ws
       - cockpit
@@ -31,6 +31,7 @@
     enabled: False
     state: stopped
     name: avahi-daemon
+  ignore_errors: yes
   
 - name: install base packages
   dnf:
