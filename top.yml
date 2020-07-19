@@ -1,12 +1,19 @@
 ---
 
 - hosts: all
+  pre_tasks: 
+    - name: include local vars
+      tags: always
+      ignore_errors: yes
+      include_vars: /var/local/ansible-vars.yml
+
   roles:
     - {role: base, tags: base}
     - {role: google-chrome , tags: google-chrome}
     - {role: firefox, tags: firefox}
     - {role: virthost, tags: virthost}
     - {role: pass, tags: pass}
+    - {role: sshd, tags: sshd}
       #- powertop 
       #- dropbox
       #- slack
