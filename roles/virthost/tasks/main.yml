@@ -1,0 +1,14 @@
+---
+
+- name: Install Virtualization Host package group"
+  dnf:
+    state: present
+    name: "@Virtualization Host"
+    exclude:
+      - cockpit
+
+- name: Install other virt tools
+  dnf:
+    state: present
+    name: 
+      - virt-install
