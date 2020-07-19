@@ -16,6 +16,7 @@
     group: root
     mode: 0755
 
+# So we can have the git module verify the commit later
 - name: import gpg key
   script:
     cmd: files/import-key.sh 
