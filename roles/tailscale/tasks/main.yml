@@ -1,0 +1,21 @@
+---
+
+- name: configure tailscale repository
+  yum_repository: 
+    name: tailscale
+    description: "https://tailscale.com/kb/1051/install-centos-8"
+    baseurl: https://pkgs.tailscale.com/stable/centos/8/$basearch
+    gpgcheck: yes
+    gpgkey: https://pkgs.tailscale.com/stable/centos/8/repo.gpg
+    enabled: yes
+
+- name: install tailscale
+  dnf: 
+    state: installed
+    name: tailscale
+
+- name: enable and start tailscale service
+  service: 
+    name: tailscaled
+    enabled: yes
+    state: started

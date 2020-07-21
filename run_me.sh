@@ -7,4 +7,6 @@
 # We pass the name of the current user to ansible as my_user so that
 # roles that need to can add the calling user to groups as needed.
 
-sudo ansible-playbook -e my_user=$USER -i hosts top.yml $@
+#sudo ansible-playbook -e my_user=$USER -i hosts top.yml $@
+sudo echo
+ansible-playbook --become-user=root -e my_user=$(whoami) -i hosts top.yml $@

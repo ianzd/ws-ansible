@@ -1,0 +1,42 @@
+---
+
+- name: install requirements
+  dnf:
+    state: present
+    name:
+      - gpg
+      - git
+      - make
+
+- name: create dest diectory
+  file:
+    path: /opt/pass
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+# So we can have the git module verify the commit later
+- name: import gpg key
+  script:
+    cmd: files/import-key.sh 
+    creates: /var/local/ansible-gpg-imported-pass-key
+
+- name: checkout git repo
+  git:
+    repo:  https://git.zx2c4.com/password-store
+    dest: /var/tmp/pass
+    version: "{{ pass_tag }}"
+    verify_commit: yes
+
+- name: install pass
+  shell:
+    cmd: 'PREFIX=/opt/pass make install'
+    chdir: /var/tmp/pass
+    creates: /opt/pass/bin/pass
+
+- name: create symlink
+  file:
+    src: /opt/pass/bin/pass
+    dest: /usr/local/bin/pass
+    state: link

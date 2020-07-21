@@ -1,0 +1,105 @@
+---
+
+- name: install workstation group
+  dnf:
+    name: "@workstation"
+    state: present
+    exclude:
+      - firefox
+      #- evolution*
+      - PackageKit-command-not-found
+      - cockpit-ws
+      - cockpit
+
+        #- name: remove unnecessary packages
+        #  dnf:
+        #    state: absent
+        #    name:
+        #      - evolution
+        #      - fedora-user-agent-chrome
+        #      - PackageKit-command-not-found
+        #      - cockpit-ws
+        #      - cockpit
+        
+- name: enable epel
+  dnf:
+    state: present
+    name: epel-release
+  
+- name: disable some services
+  service:
+    enabled: False
+    state: stopped
+    name: avahi-daemon
+  ignore_errors: yes
+  
+- name: install base packages
+  dnf:
+    state: installed
+    enablerepo: PowerTools
+    name:
+            #      - "acpi"
+            #- "adobe-source-code-pro-fonts"
+      - "alpine"
+      - "aspell"
+      - "aspell-en"
+      - "discount"
+        #- "dmenu"
+      - "elinks"
+      - "enscript"
+        #- "firefox"
+        # - "fzf"
+      - "gcc"
+      - "gimp"
+      - "git"
+      - "gnome-tweak-tool"
+      - "gvfs-mtp"
+      - "iotop"
+      - "keepass"
+      - "libvirt-client"
+      - "libvirt-daemon-config-nwfilter"
+      - "ncdu"
+      - "nmap"
+      - "nmap-ncat"
+      - "openssh-clients"
+      - "openssl"
+      - "perf"
+      - "python3-pip"
+      - "rsync"
+      - "screen"
+      - "smartmontools"
+      - "sshuttle"
+      - "strace"
+      - "tcpdump"
+      - "vim"
+      - "vim-X11"
+      - "vim-enhanced"
+      - "vim-filesystem"
+      - "virt-top"
+      - "wavemon"
+      - "wireshark"
+
+        # TODO: not in centos8        
+        #- "wireshark-gnome"
+        #- "httpie"
+        #- "solaar"
+        #- "the_silver_searcher"
+        #- "thunar"
+        #- "ddccontrol-gtk"
+      # wine
+      #  xfce4-battery-plugin
+      #    - xfce4-power-manager
+      #    - xfce4-terminal
+      #    - xmobar
+      #    - xmonad
+      #    - xorg-x11-drv-synaptics
+     
+# Stop systemd-resolved from listening to 5355/tcp
+- name: configure systemd-resolved
+  template: src=resolved.conf.j2 dest=/etc/systemd/resolved.conf 
+  notify: restart systemd-resolved
+
+- name: remind self about isolate graphical
+  template: src=graphical.issue dest=/etc/issue.d/graphical.issue
+
+

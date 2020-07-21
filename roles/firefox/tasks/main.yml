@@ -1,0 +1,19 @@
+---
+
+- name: test if firefox is already installed
+  stat: path=/opt/firefox
+  register: firefox_installed
+
+- name: download and untar firefox
+  unarchive:
+    src: https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64
+    dest: /opt
+    remote_src: yes
+    owner: "{{ my_user }}"
+  when: firefox_installed.stat.exists == False
+
+- name: create firefox symlink
+  file:
+     src: /opt/firefox/firefox
+     dest: /usr/local/bin/firefox
+     state: link
