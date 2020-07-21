@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This imports the gpg key from the pass author
-# http://www.zx2c4.com/keys/AB9942E6D4A4CFC3412620A749FC7012A5DE03AE.asc
+# https://www.zx2c4.com/keys/AB9942E6D4A4CFC3412620A749FC7012A5DE03AE.asc
 
 gpg --import <<EOFEOF
 -----BEGIN PGP PUBLIC KEY BLOCK-----
