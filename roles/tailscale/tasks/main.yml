@@ -13,3 +13,9 @@
   dnf: 
     state: installed
     name: tailscale
+
+- name: enable and start tailscale service
+  service: 
+    name: tailscaled
+    enabled: yes
+    state: started
