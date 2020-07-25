@@ -1,0 +1,5 @@
+---
+
+tailscale_baseurl: https://pkgs.tailscale.com/stable/fedora/$basearch
+tailscale_gpgkey: https://pkgs.tailscale.com/stable/fedora/repo.gpg
+

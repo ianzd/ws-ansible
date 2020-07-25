@@ -1,12 +1,19 @@
 ---
 
+- name: gather os specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "{{ ansible_distribution }}.yml"
+  #tags: vars
+
 - name: configure tailscale repository
   yum_repository: 
     name: tailscale
-    description: "https://tailscale.com/kb/1051/install-centos-8"
-    baseurl: https://pkgs.tailscale.com/stable/centos/8/$basearch
+    description: "https://tailscale.com/kb/1031/install-linux"
+    baseurl: "{{ tailscale_baseurl }}"
     gpgcheck: yes
-    gpgkey: https://pkgs.tailscale.com/stable/centos/8/repo.gpg
+    gpgkey: "{{ tailscale_gpgkey }}"
     enabled: yes
 
 - name: install tailscale
