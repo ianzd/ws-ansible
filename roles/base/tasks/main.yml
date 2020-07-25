@@ -9,7 +9,7 @@
       - PackageKit-command-not-found
       - cockpit-ws
       - cockpit
-  when: ansible_distribution == "Centos"
+  when: ansible_distribution == "CentOS"
 
 - name: enable epel
   dnf:
