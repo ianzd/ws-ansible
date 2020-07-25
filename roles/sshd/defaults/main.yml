@@ -2,3 +2,4 @@
 
 sshd_port: 22
 sshd_passwordauthentication: "no"
+sshd_usedns: "no"
