@@ -9,7 +9,6 @@
   firewalld:
     port: "{{ sshd_port }}/tcp"
     permanent: yes
-    zone: FedoraServer
     state: enabled
 
 - name: Allow sshd to listen on its port
