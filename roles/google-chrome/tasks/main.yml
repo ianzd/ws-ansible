@@ -5,6 +5,11 @@
   register: google_chrome_installed
   tags: google-chrome
 
+- name: import google RPM signing key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://dl.google.com/linux/linux_signing_key.pub
+
 - name: download chrome if its repo doesn't already exist
   dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=installed
   when: google_chrome_installed.stat.exists == False
