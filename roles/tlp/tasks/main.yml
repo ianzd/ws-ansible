@@ -1,0 +1,19 @@
+---
+
+- name: install tlp package
+  dnf:
+    name: tlp
+    state: installed
+
+- name: configure tlp battery thresholds
+  template:
+    src: battthresh.conf.j2
+    dest: /etc/tlp.d/00-battthresh.conf
+    owner: root
+    group: root
+  notify: tlp restart
+
+- name: enable tlp service
+  service:
+    name: tlp
+    enabled: yes
