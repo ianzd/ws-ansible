@@ -91,6 +91,23 @@
     state: present
     name:
       - magic-wormhole
+
+- name: enable rpmfusion-free
+  dnf:
+    state: present
+    name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-33.noarch.rpm
+    disable_gpg_check: true 
+
+- name: enable rpmfusion-nonfree
+  dnf:
+    state: present
+    name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-33.noarch.rpm
+    disable_gpg_check: true 
+
+- name: install ffmpeg (required rpmfusion)
+  dnf:
+    state: present
+    name: ffmpeg
      
 # Stop systemd-resolved from listening to 5355/tcp
 - name: configure systemd-resolved
@@ -99,5 +116,6 @@
 
 - name: remind self about isolate graphical
   template: src=graphical.issue dest=/etc/issue.d/graphical.issue
+
 
 
