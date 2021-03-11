@@ -7,12 +7,17 @@
     - "{{ ansible_distribution }}.yml"
   #tags: vars
 
+- name: import tailscale RPM signing key
+  ansible.builtin.rpm_key:
+    state: present
+    key: "{{ tailscale_gpgkey }}"
+
 - name: configure tailscale repository
   yum_repository: 
     name: tailscale
     description: "https://tailscale.com/kb/1031/install-linux"
     baseurl: "{{ tailscale_baseurl }}"
-    gpgcheck: yes
+    gpgcheck: no # This is bad, but consistant with tailscale's repo
     gpgkey: "{{ tailscale_gpgkey }}"
     enabled: yes
 
