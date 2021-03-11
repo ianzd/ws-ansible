@@ -4,15 +4,15 @@
   yum_repository:
     name: dropbox
     description: Dropbox repository
-    #baseurl: http://linux.dropbox.com/fedora/$releasever/
-    baseurl: http://linux.dropbox.com/fedora/26/
+    baseurl: http://linux.dropbox.com/fedora/$releasever/
+      #baseurl: http://linux.dropbox.com/fedora/26/
     enabled: true
     gpgkey: https://linux.dropbox.com/fedora/rpm-public-key.asc
     sslverify: true
   tags: dropbox
 
 - name: install Dropbox
-  dnf: name=nautilus-dropbox state=installed
+  dnf: name=dropbox state=installed
   tags: dropbox
 
 
