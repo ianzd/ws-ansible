@@ -12,9 +12,10 @@
     - {role: google-chrome , tags: google-chrome}
     - {role: firefox, tags: firefox}
     - {role: virthost, tags: virthost}
-    - {role: pass, tags: pass}
+      #  - {role: pass, tags: pass}
     - {role: sshd, tags: sshd}
     - {role: tailscale, tags: tailscale}
+    - {role: tlp , tags: tlp}
       #- powertop 
       #- dropbox
       #- slack
