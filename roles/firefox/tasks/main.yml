@@ -4,6 +4,11 @@
   stat: path=/opt/firefox
   register: firefox_installed
 
+- name: remove vendor firefox rpm
+  dnf:
+     name: firefox
+     state: absent
+
 - name: download and untar firefox
   unarchive:
     src: https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64
