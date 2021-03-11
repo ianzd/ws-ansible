@@ -6,7 +6,7 @@
     name: openssh-server
 
 - name: open sshd port
-  firewalld:
+  ansible.posix.firewalld:
     port: "{{ sshd_port }}/tcp"
     permanent: yes
     state: enabled
