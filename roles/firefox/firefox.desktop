@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Mozilla Firefox
+Name=Mozilla Firefox (firejailed)
 Comment=Browse the World Wide Web
 GenericName=Web Browser
 X-GNOME-FullName=Mozilla Firefox
-Exec=/usr/local/bin/firefox %u
+Exec=/usr/bin/firejail /usr/local/bin/firefox %u
 Terminal=false
 X-MultipleArgs=false
 Type=Application
