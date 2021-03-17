@@ -1,0 +1,3 @@
+# Allows widevine to work (Netflix, Tidal, etc.)
+# This is in lieu of setting browser-allow-dry in firejail.conf
+ignore noexec ${HOME}

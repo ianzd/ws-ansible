@@ -9,6 +9,14 @@
     name: firejail
     state: present
 
+- name: configure firejail to allow drm (widevine)
+  copy:
+    src: files/firefox-common.local
+    dest: /etc/firejail/
+    owner: root
+    group: root
+    mode: 0644
+
 - name: remove vendor firefox rpm
   dnf:
      name: firefox
@@ -36,7 +44,7 @@
 
 - name: create .desktop file
   copy:
-    src: firefox.desktop
+    src: files/firefox.desktop
     dest: /usr/local/share/applications
     owner: root
     group: root
