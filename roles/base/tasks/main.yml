@@ -35,10 +35,8 @@
       - "aspell"
       - "aspell-en"
       - "discount"
-        #- "dmenu"
       - "elinks"
       - "enscript"
-        #- "firefox"
         # - "fzf"
       - "gcc"
       - "gimp"
@@ -70,27 +68,16 @@
       - "wavemon"
       - "wireshark"
 
-        # TODO: not in centos8        
-        #- "wireshark-gnome"
-        #- "httpie"
-        #- "solaar"
-        #- "the_silver_searcher"
-        #- "thunar"
-        #- "ddccontrol-gtk"
-      # wine
-      #  xfce4-battery-plugin
-      #    - xfce4-power-manager
-      #    - xfce4-terminal
-      #    - xmobar
-      #    - xmonad
-      #    - xorg-x11-drv-synaptics
-      #
 - name: install fedora-specific packages
   when: ansible_distribution == "Fedora"
   dnf:
     state: present
     name:
       - magic-wormhole
+      - httpie
+      - "the_silver_searcher"
+      - wine
+      - fzf
 
 - name: enable rpmfusion-free
   dnf:
@@ -104,7 +91,7 @@
     name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-33.noarch.rpm
     disable_gpg_check: true 
 
-- name: install ffmpeg (required rpmfusion)
+- name: install ffmpeg (requires rpmfusion)
   dnf:
     state: present
     name: ffmpeg
