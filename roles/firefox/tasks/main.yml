@@ -22,6 +22,12 @@
     owner: "{{ my_user }}"
   when: firefox_installed.stat.exists == False
 
+- name: chown firefox dir
+  file:
+    path: /opt/firefox
+    state: directory
+    owner: "{{ my_user }}"
+
 - name: create firefox symlink
   file:
      src: /opt/firefox/firefox
