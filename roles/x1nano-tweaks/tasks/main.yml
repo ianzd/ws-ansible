@@ -1,0 +1,9 @@
+---
+
+- name: Fix suspend when docked
+  copy:
+    src: files/x1nano-fix-suspend
+    dest: /usr/lib/systemd/system-sleep/
+    owner: root
+    group: root
+    mode: 0755

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# These devices prevent the X1 Nano from suspending
+# when connected to a monitor through a Lenovo
+# Thunderbolt 3 Dock Gen 2 (40AN)
+# Disabling ACPI wakeup for each appears to fix this.
+#
+# Drop this in /usr/lib/systemd/system-sleep/
+# Tested on Fedora 33
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+DISABLE_WAKEUP="XHCI TXHC TDM0 TDM1"
+
+function log() {
+	echo "$0 $1"
+}
+
+function disable_wakeup() {
+	device=$1
+	if grep -qe "${device}.*disabled" /proc/acpi/wakeup; then
+	log "${device} is already disabled"
+	return 0
+	fi
+
+	log "Disabling ACPI wakeup for $device"
+	echo $device > /proc/acpi/wakeup
+}
+
+case $1 in
+"pre" )
+log "Disabling acpi wakup on devices: ${DISABLE_WAKEUP}"
+for device in $DISABLE_WAKEUP; do
+	disable_wakeup $device
+done
+;;
+
+esac
