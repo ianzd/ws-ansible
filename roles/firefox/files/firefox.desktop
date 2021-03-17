@@ -3,7 +3,7 @@ Name=Mozilla Firefox (firejailed)
 Comment=Browse the World Wide Web
 GenericName=Web Browser
 X-GNOME-FullName=Mozilla Firefox
-Exec=/usr/bin/firejail /usr/local/bin/firefox %u
+Exec=env MOZ_ENABLE_WAYLAND=1 /usr/bin/firejail /usr/local/bin/firefox %u
 Terminal=false
 X-MultipleArgs=false
 Type=Application
