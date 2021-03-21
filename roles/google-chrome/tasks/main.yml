@@ -23,3 +23,11 @@
 - name: template chrome cron defaults
   template: src=google-chrome-etc-default.j2 dest=/etc/default/google-chrome owner=root group=root mode=0644
   tags: google-chrome
+
+- name: create chrome incognito shortcut
+  copy:
+    src: files/google-chrome-incognito.desktop
+    dest: /usr/local/share/applications/
+    owner: root
+    group: root
+    mode: 0644

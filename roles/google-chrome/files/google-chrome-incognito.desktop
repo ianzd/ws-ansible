@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Chrome (incognito)
+Comment=Chrome (incognito)
+GenericName=Web Browser
+X-GNOME-FullName=Google Chrome (Incognito)
+Exec=/usr/bin/google-chrome --incognito
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=Chrome
+Categories=Network;WebBrowser;
+StartupNotify=true
