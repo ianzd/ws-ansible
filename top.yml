@@ -15,8 +15,8 @@
       #  - {role: pass, tags: pass}
     - {role: sshd, tags: sshd}
     - {role: tailscale, tags: tailscale}
-    - {role: tlp , tags: tlp}
-    - {role: x1nano-tweaks, tags: x1nano-tweaks, when: ansible_product_version=="ThinkPad X1 Nano Gen 1"}
+    # - {role: tlp , tags: tlp}
+    # - {role: x1nano-tweaks, tags: x1nano-tweaks, when: ansible_product_version=="ThinkPad X1 Nano Gen 1"}
       #- powertop 
       #- dropbox
       #- slack
